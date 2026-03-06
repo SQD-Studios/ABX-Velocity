@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/ABX_Velocity.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/ABX_Velocity.core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ABX_Velocity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ABX_Velocity.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/velocity/ABX_Velocity.velocity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/velocity/ABX_Velocity.velocity.main.iml" />
     </modules>
   </component>
 </project>

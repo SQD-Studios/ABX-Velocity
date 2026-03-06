@@ -1,10 +1,28 @@
-[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-4bc3f004-b559)...
-[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
-[18:24:30] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use NIO channels, Java compression, Java ciphers
-[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
-[18:24:30] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin abxvelocity 0.1.0-SNAPSHOT by Chamogelastos, SQD Studios
-[18:24:31] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 2 plugins
-[18:24:31] [Netty NIO Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25564
-[18:24:31] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (0,87s)!
-[18:24:35] [Netty NIO Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Chamogelastos (/127.0.0.1:50698) has connected
-[18:24:35] [Netty NIO Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Chamogelastos -> lobby has connected
+[22:45:40] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-4bc3f004-b559)...
+[22:45:40] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[22:45:41] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use NIO channels, Java compression, Java ciphers
+[22:45:41] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
+[22:45:41] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin abxvelocity 1.0 by Chamogelastos
+[22:45:41] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 2 plugins
+[22:45:41] [ABX Velocity - Task Executor #0/INFO] [net.chamosmp.aBXVelocity.VelocityMain]: [AdvancedBanX] No offline permission support through LuckPerms
+[22:45:41] [ABX Velocity - Task Executor #0/ERROR] [net.chamosmp.aBXVelocity.VelocityMain]: ERROR: Failed to configure data source!
+[22:45:41] [ABX Velocity - Task Executor #0/ERROR] [net.chamosmp.aBXVelocity.VelocityMain]: An unexpected error has occurred connecting to the database
+Check if your MySQL data is correct and if your MySQL-Server is online
+Please check the plugins/AdvancedBanX/logs/latest.log file and report this error in: https://github.com/hlpdev/AdvancedBanX/issues/new
+[22:45:42] [ABX Velocity - Task Executor #0/INFO] [net.chamosmp.aBXVelocity.VelocityMain]: 
+
+[]=====[Enabling AdvancedBanX]=====[]
+| Information:
+|   Name: AdvancedBanX
+|   Developer: Leoko
+|   Maintainer & Updater: 2vY
+|   Version: 1.0
+|   Storage: HSQLDB (local)
+| Support:
+|   GitHub: https://github.com/hlpdev/AdvancedBanX/issues
+| Update:
+|   There is a new version available! [[3.1.0]]
+[]================================[]
+ 
+[22:45:42] [Netty NIO Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25564
+[22:45:42] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (1,78s)!

@@ -1,0 +1,12 @@
+{
+  "id": "abxvelocity",
+  "name": "ABX Velocity",
+  "version": "1.0",
+  "main": "net.chamosmp.aBXVelocity.VelocityMain",
+  "authors": [
+    "Chamogelastos",
+    "SQD Studios"
+  ],
+  "url": "https://software.chamosmp.net",
+  "description": "AdvancedBanX for Velocity"
+}

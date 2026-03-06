@@ -2,3 +2,6 @@
 build
 .gradle
 .idea/
+/velocity/run
+/core/run
+/velocity/build
