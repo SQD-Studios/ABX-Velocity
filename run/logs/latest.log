@@ -1,58 +1,10 @@
-[16:53:36] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-4bc3f004-b559)...
-[16:53:36] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use NIO channels, Java compression, Java ciphers
-[16:53:37] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: Player info forwarding is disabled! All players will appear to be connecting from the proxy and will have offline-mode UUIDs.
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin abxvelocity 1.0 by Chamogelastos
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 2 plugins
-[16:53:37] [Netty NIO Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25565
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Metrics]: Velocity and some of its plugins collect metrics and send them to bStats (https://bStats.org).
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Metrics]: bStats collects some basic information for plugin authors, like how many people use
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Metrics]: their plugin and their total player count. It's recommended to keep bStats enabled, but
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Metrics]: if you're not comfortable with this, you can opt-out by editing the config.txt file in
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Metrics]: the '/plugins/bStats/' folder and setting enabled to false.
-[16:53:37] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (1,13s)!
-[16:54:05] [Netty NIO Worker #1/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Chamogelastos (/127.0.0.1:55254) has connected
-[16:54:05] [Netty NIO Worker #1/ERROR] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] Chamogelastos (/127.0.0.1:55254): unable to connect to server lobby
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:30066
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[?:?]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[?:?]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:384) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1193) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[16:54:05] [Netty NIO Worker #1/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] Chamogelastos (/127.0.0.1:55254) has disconnected: Unable to connect you to lobby. Please try again later.
-[16:54:08] [Netty NIO Worker #13/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Chamogelastos (/127.0.0.1:54339) has connected
-[16:54:08] [Netty NIO Worker #13/ERROR] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] Chamogelastos (/127.0.0.1:54339): unable to connect to server lobby
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:30066
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[?:?]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[?:?]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:384) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1193) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[559.jar:3.4.0-SNAPSHOT (git-4bc3f004-b559)]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[16:54:08] [Netty NIO Worker #13/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] Chamogelastos (/127.0.0.1:54339) has disconnected: Unable to connect you to lobby. Please try again later.
+[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-4bc3f004-b559)...
+[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[18:24:30] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use NIO channels, Java compression, Java ciphers
+[18:24:30] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
+[18:24:30] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin abxvelocity 0.1.0-SNAPSHOT by Chamogelastos, SQD Studios
+[18:24:31] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 2 plugins
+[18:24:31] [Netty NIO Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25564
+[18:24:31] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (0,87s)!
+[18:24:35] [Netty NIO Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Chamogelastos (/127.0.0.1:50698) has connected
+[18:24:35] [Netty NIO Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Chamogelastos -> lobby has connected

@@ -1,1 +1,1 @@
-{"id":"abxvelocity","name":"ABX Velocity","version":"1.0","description":"Kura Anti Cheat. Built to perform, used in the ChamoSMP","url":"chamosmp.net","authors":["Chamogelastos"],"dependencies":[],"main":"net.chamosmp.aBXVelocity.ABXVelocity"}
+{"id":"abxvelocity","name":"ABX Velocity","version":"0.1.0-SNAPSHOT","description":"AdvancedBanX for Velocity","url":"https://software.chamosmp.net","authors":["Chamogelastos"],"dependencies":[],"main":"net.chamosmp.aBXVelocity.utils.BstatsMetrics"}

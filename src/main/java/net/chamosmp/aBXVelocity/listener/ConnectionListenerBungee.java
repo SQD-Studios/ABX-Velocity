@@ -2,7 +2,7 @@ package net.chamosmp.aBXVelocity.listener;
 
 import com.imaginarycode.minecraft.redisbungee.RedisBungee;
 import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.bungee.BungeeMain;
+import net.chamosmp.aBXVelocity.BungeeMain;
 import net.hnt8.advancedban.manager.PunishmentManager;
 import net.hnt8.advancedban.manager.UUIDManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;

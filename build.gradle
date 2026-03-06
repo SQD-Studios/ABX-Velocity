@@ -27,13 +27,6 @@ repositories {
         name = "sonatype-snapshots"
         url = "https://oss.sonatype.org/content/repositories/snapshots"
     }
-    maven {
-        name = "hnt8"
-        url = "https://java.hnt8.net"
-        content {
-            includeGroup "net.hnt8.advancedban"
-        }
-    }
 }
 
 dependencies {
@@ -41,17 +34,16 @@ dependencies {
     annotationProcessor("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
     compileOnly ("net.luckperms:api:5.2")
     compileOnly ("net.md-5:bungeecord-api:1.20-R0.2")
+    compileOnly(files("libs/AdvancedBanX-3.1.0.jar"))
     compileOnly ("eu.cloudnetservice.cloudnet:driver-api:4.0.0-RC14")
     compileOnly ("eu.cloudnetservice.cloudnet:bridge-api:4.0.0-RC14")
     compileOnly ("com.imaginarycode.minecraft:RedisBungee:0.3.6-SNAPSHOT")
-    def advancedBanxJar = file("libs/AdvancedBanX-3.1.0.jar")
-    if (advancedBanxJar.exists()) {
-        compileOnly(files(advancedBanxJar))
-    } else {
-        compileOnly ("net.hnt8.advancedban:AdvancedBanX:3.1.0")
-    }
     compileOnly ("net.kyori:adventure-text-minimessage:4.17.0")
     compileOnly ("net.kyori:adventure-platform-bungeecord:4.3.3")
+    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("commons-io:commons-io:2.16.1")
+    implementation("org.apache.commons:commons-lang3:3.14.0")
+    implementation("org.bstats:bstats-bungeecord:3.2.1")
     implementation("org.bstats:bstats-velocity:3.2.1")
 }
 

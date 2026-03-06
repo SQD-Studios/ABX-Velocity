@@ -7,12 +7,10 @@ import com.google.gson.JsonParser;
 import com.imaginarycode.minecraft.redisbungee.RedisBungee;
 import net.hnt8.advancedban.MethodInterface;
 import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.bungee.event.PunishmentEvent;
-import net.hnt8.advancedban.bungee.event.RevokePunishmentEvent;
-import net.hnt8.advancedban.bungee.listener.CommandReceiverBungee;
-import net.hnt8.advancedban.bungee.utils.CloudNetCloudPermsOfflineUser;
-import net.hnt8.advancedban.bungee.utils.LuckPermsOfflineUser;
-import net.hnt8.advancedban.bungee.utils.BungeeMetrics;
+import net.chamosmp.aBXVelocity.event.PunishmentEvent;
+import net.chamosmp.aBXVelocity.event.RevokePunishmentEvent;
+import net.chamosmp.aBXVelocity.listener.CommandReceiverBungee;
+import net.chamosmp.aBXVelocity.utils.LuckPermsOfflineUser;
 import net.hnt8.advancedban.manager.DatabaseManager;
 import net.hnt8.advancedban.manager.PunishmentManager;
 import net.hnt8.advancedban.manager.UUIDManager;
@@ -34,6 +32,8 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+import org.bstats.bungeecord.Metrics;
+import org.bstats.charts.SimplePie;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,14 +68,10 @@ public class BungeeMethods implements MethodInterface {
             permissionableGenerator = LuckPermsOfflineUser::new;
 
             getLogger().info("[AdvancedBanX] Offline permission support through LuckPerms active");
-        } else if (ProxyServer.getInstance().getPluginManager().getPlugin("CloudNet-CloudPerms") != null) {
-            permissionableGenerator = CloudNetCloudPermsOfflineUser::new;
-
-            getLogger().info("[AdvancedBanX] Offline permission support through CloudNet-CloudPerms active");
         } else {
             permissionableGenerator = null;
 
-            getLogger().info("[AdvancedBanX] No offline permission support through LuckPerms or CloudNet-CloudPerms");
+            getLogger().info("[AdvancedBanX] No offline permission support through LuckPerms");
         }
     }
 
@@ -160,8 +156,8 @@ public class BungeeMethods implements MethodInterface {
 
     @Override
     public void setupMetrics() {
-        BungeeMetrics metrics = new BungeeMetrics(getPlugin(), 22106);
-        metrics.addCustomChart(new BungeeMetrics.SimplePie("MySQL", () -> DatabaseManager.get().isUseMySQL() ? "yes" : "no"));
+        Metrics metrics = new Metrics(getPlugin(), 22106);
+        metrics.addCustomChart(new SimplePie("MySQL", () -> DatabaseManager.get().isUseMySQL() ? "yes" : "no"));
     }
 
     @Override

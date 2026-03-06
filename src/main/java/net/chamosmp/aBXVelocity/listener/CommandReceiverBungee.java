@@ -1,6 +1,6 @@
 package net.chamosmp.aBXVelocity.listener;
 
-import net.hnt8.advancedban.bungee.BungeeMain;
+import net.chamosmp.aBXVelocity.BungeeMain;
 import net.hnt8.advancedban.manager.CommandManager;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
