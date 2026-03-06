@@ -140,21 +140,21 @@ public class Universal {
         DatabaseManager.get().shutdown();
 
         if (mi.getBoolean(mi.getConfig(), "DetailedDisableMessage", true)) {
-            String message = "\n\n<dark_gray>[]=====[<red>Disabling AdvancedBanX</red>]=====[]</dark_gray>"
+            String message = "\n\n<dark_gray>[]=====[<red>Disabling ABX Velocity</red>]=====[]</dark_gray>"
                     + "\n<dark_gray>|</dark_gray> <red>Information:</red>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Name:</red> <gray>AdvancedBanX</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Developer:</red> <gray>Leoko</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Maintainer & Updater:</red> <gray>2vY</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <red>Name:</red> <gray>ABX Velocity</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <red>Developer:</red> <gray>Chamogelastos</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <red>Organization:</red> <gray>SQD Studios</gray>"
                     + "\n<dark_gray>|</dark_gray>   <red>Version:</red> <gray>" + mi.getVersion() + "</gray>"
                     + "\n<dark_gray>|</dark_gray>   <red>Storage:</red> <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "</gray>"
                     + "\n<dark_gray>|</dark_gray> <red>Support:</red>"
-                    + "\n<dark_gray>|</dark_gray>   <red>GitHub:</red> <gray>https://github.com/hlpdev/AdvancedBanX/issues</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <red>GitHub:</red> <gray>https://github.com/SQD-Studios/ABX-Velocity/issues</gray>"
                     + "\n<dark_gray>[]================================[]</dark_gray>\n ";
             
             mi.getLogger().info(SerializeMiniMessage(message));
         } else {
-            mi.getLogger().info(SerializeMiniMessage("<red>Disabling AdvancedBanX on Version</red> <gray>" + mi.getVersion() + "</gray>"));
-            mi.getLogger().info(SerializeMiniMessage("<red>Coded by <gray>Leoko</gray> <dark_gray>|</dark_gray> Maintained & Updated by <gray>2vY</gray></red>"));
+            mi.getLogger().info(SerializeMiniMessage("<red>Disabling ABX Velocity on Version</red> <gray>" + mi.getVersion() + "</gray>"));
+            mi.getLogger().info(SerializeMiniMessage("<red>Coded by <gray>Chamogelastos</gray> <dark_gray>|</dark_gray> Organization:<gray>SQD Studios</gray></red>"));
         }
     }
 
