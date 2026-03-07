@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id("com.gradleup.shadow") version "9.3.1"
 }
 
 test {
@@ -21,12 +22,12 @@ dependencies {
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine")
     compileOnly ("org.slf4j:slf4j-api:2.0.16")
     compileOnly ("org.slf4j:slf4j-nop:2.0.13")
-    compileOnly ("com.zaxxer:HikariCP:6.2.1")
+    implementation ("com.zaxxer:HikariCP:6.2.1")
     compileOnly ("com.google.code.gson:gson:2.11.0")
     compileOnly ("net.kyori:adventure-text-minimessage:4.17.0")
     compileOnly ("net.kyori:adventure-text-serializer-ansi:4.17.0")
 // Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
-    implementation 'com.mysql:mysql-connector-j:9.6.0'
+    implementation ('com.mysql:mysql-connector-j:9.6.0')
 }
 
 def targetJavaVersion = 21
@@ -37,4 +38,11 @@ java {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.release.set(targetJavaVersion)
+}
+
+shadowJar {
+    archiveClassifier.set('') // Replace the default `-all` suffix
+    mergeServiceFiles() // Ensures service files like HikariCP get merged
+    relocate 'com.zaxxer.hikari', 'net.chamosmp.libs.hikari' // relocate to avoid conflicts
+    relocate 'com.mysql', 'net.chamosmp.libs.mysql' // relocate MySQL driver
 }
