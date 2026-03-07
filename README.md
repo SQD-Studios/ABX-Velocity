@@ -11,9 +11,9 @@ even if it is one of the biggest plugins for bans in history but not updated or 
 This Velocity Plugin fixes 1 of those problems. No one uses bungeecord
 
 ## Building
-```
+ `
 ./gradlew shadowJar
-```
+ `
 ## How to use
 Add the .jar (jarfile) to you server plugin directory and restart the server.
 To know how to use it go [here](https://modrinth.com/plugin/advancedbanx).
