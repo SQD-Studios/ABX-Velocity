@@ -1,4 +1,6 @@
 name: Build Velocity Plugin
+permissions:
+  contents: read
 
 on:
   push:
