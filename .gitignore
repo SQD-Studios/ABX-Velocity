@@ -1,5 +1,8 @@
+/.gradle/
+/.idea/
+/.tmp-run-task/
+/.tmp-velocity-api/
+/build/
+/core/build/
+/velocity/build/
 /run/
-build
-.gradle
-.idea/
-/velocity/run/
