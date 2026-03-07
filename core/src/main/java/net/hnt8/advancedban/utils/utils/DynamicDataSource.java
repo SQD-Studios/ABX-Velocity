@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.utils;
+package net.hnt8.advancedban.utils;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -17,6 +17,8 @@ public class DynamicDataSource {
             String password = mi.getString(mi.getMySQLFile(), "MySQL.Password", "Unknown");
             String properties = mi.getString(mi.getMySQLFile(), "MySQL.Properties", "verifyServerCertificate=false&useSSL=false&useUnicode=true&characterEncoding=utf8");
             int port = mi.getInteger(mi.getMySQLFile(), "MySQL.Port", 3306);
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
             config.setJdbcUrl(
                     "jdbc:mysql://" + ip + ":" + port + "/" + dbName +
                             "?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8"
