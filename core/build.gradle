@@ -25,6 +25,8 @@ dependencies {
     compileOnly ("com.google.code.gson:gson:2.11.0")
     compileOnly ("net.kyori:adventure-text-minimessage:4.17.0")
     compileOnly ("net.kyori:adventure-text-serializer-ansi:4.17.0")
+// Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation 'com.mysql:mysql-connector-j:9.6.0'
 }
 
 def targetJavaVersion = 21

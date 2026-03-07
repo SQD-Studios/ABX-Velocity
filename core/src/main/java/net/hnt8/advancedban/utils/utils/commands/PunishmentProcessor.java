@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.commands;
+package net.hnt8.advancedban.utils.utils.commands;
 
 import net.hnt8.advancedban.utils.MethodInterface;
 import net.hnt8.advancedban.utils.Universal;

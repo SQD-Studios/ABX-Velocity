@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils;
+package net.hnt8.advancedban.utils.utils;
 
 import net.hnt8.advancedban.utils.manager.PunishmentManager;
 

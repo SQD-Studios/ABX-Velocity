@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.tabcompletion;
+package net.hnt8.advancedban.utils.utils.tabcompletion;
 
 public class BasicTabCompleter extends CleanTabCompleter {
     public BasicTabCompleter(String... firstLayerArguments) {
