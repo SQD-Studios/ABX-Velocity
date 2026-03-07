@@ -1,7 +1,5 @@
-/run
+/run/
 build
 .gradle
 .idea/
-/velocity/run
-/core/run
-/velocity/build
+/velocity/run/

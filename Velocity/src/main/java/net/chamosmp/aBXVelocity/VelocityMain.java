@@ -14,6 +14,7 @@ import net.chamosmp.aBXVelocity.velocity.VelocityChatListener;
 import net.chamosmp.aBXVelocity.velocity.VelocityConnectionListener;
 import net.chamosmp.aBXVelocity.velocity.VelocityPluginMessageListener;
 import net.hnt8.advancedban.utils.Universal;
+import org.bstats.charts.SimplePie;
 import org.bstats.velocity.Metrics;
 
 import javax.inject.Inject;
@@ -94,10 +95,20 @@ public class VelocityMain {
         proxy.getEventManager().register(this, new VelocityChatListener());
         proxy.getEventManager().register(this, new VelocityConnectionListener());
         proxy.getEventManager().register(this, new VelocityPluginMessageListener());
+        // You can find the plugin id of your plugins on
+        // the page https://bstats.org/what-is-my-plugin-id
+        int pluginId = 29953;
+        Metrics metrics = metricsFactory.make(this, pluginId);
+
+        // You can also add custom charts:
+        metrics.addCustomChart(
+                new SimplePie("chart_id", () -> "value")
+        );
     }
 
     @Subscribe
     public void onProxyShutdown(ProxyShutdownEvent event) {
         Universal.get().shutdown();
     }
+
 }
