@@ -16,20 +16,24 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.ansi.ANSIComponentSerializer;
 import org.apache.commons.io.FileUtils;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 
@@ -105,7 +109,12 @@ public class Universal {
         }
 
         String upt = "You have the newest version";
-        String response = getFromURL("https://api.spigotmc.org/legacy/update.php?resource=117067");
+        String modrinthProject = System.getenv("3UQvsOJH");
+        if (modrinthProject == null || modrinthProject.trim().isEmpty()) {
+            modrinthProject = mi.getString(mi.getConfig(), "Update-Checker.Modrinth.Project", "");
+        }
+        String modrinthToken = System.getenv("mrp_I4JGeFoiUXylxiFs6pUxsIG5RS2NpTaQdPbBkaNULI4UkGjJZ0zRc4RknDH2");
+        String response = fetchLatestModrinthVersion(modrinthProject, modrinthToken);
         if (response == null) {
             upt = "Failed to check for updates :(";
         } else if ((!mi.getVersion().startsWith(response))) {
@@ -195,18 +204,142 @@ public class Universal {
      * @return the from url
      */
     public String getFromURL(String surl) {
+        return getFromURL(surl, new HashMap<>());
+    }
+
+    public String getFromURL(String surl, Map<String, String> headers) {
         String response = null;
+        HttpURLConnection connection = null;
         try {
             URL url = new URL(surl);
-            Scanner s = new Scanner(url.openStream());
-            if (s.hasNext()) {
-                response = s.next();
-                s.close();
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("User-Agent", "ABX-Velocity");
+            if (headers != null) {
+                for (Map.Entry<String, String> header : headers.entrySet()) {
+                    if (header.getKey() != null && header.getValue() != null) {
+                        connection.setRequestProperty(header.getKey(), header.getValue());
+                    }
+                }
+            }
+
+            int status = connection.getResponseCode();
+            InputStream stream = status >= 200 && status < 300
+                    ? connection.getInputStream()
+                    : connection.getErrorStream();
+            if (stream == null) {
+                return null;
+            }
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.defaultCharset()))) {
+                StringBuilder builder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line);
+                }
+                response = builder.toString();
             }
         } catch (IOException exc) {
             getLogger().warning("!! Failed to connect to URL: " + surl);
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
         return response;
+    }
+
+    private String fetchLatestModrinthVersion(String projectInput, String token) {
+        String project = normalizeModrinthProject(projectInput);
+        if (project == null || project.isEmpty()) {
+            return null;
+        }
+
+        String url = "https://api.modrinth.com/v2/project/" + project + "/version";
+        Map<String, String> headers = new HashMap<>();
+        if (token != null && !token.trim().isEmpty()) {
+            String trimmedToken = token.trim();
+            if (trimmedToken.toLowerCase().startsWith("bearer ")) {
+                headers.put("Authorization", trimmedToken);
+            } else {
+                headers.put("Authorization", "Bearer " + trimmedToken);
+            }
+        }
+
+        String json = getFromURL(url, headers);
+        if (json == null || json.isEmpty()) {
+            return null;
+        }
+
+        try {
+            com.google.gson.JsonElement root = com.google.gson.JsonParser.parseString(json);
+            if (!root.isJsonArray()) {
+                return null;
+            }
+
+            com.google.gson.JsonArray versions = root.getAsJsonArray();
+            Instant latestDate = null;
+            String latestVersion = null;
+
+            for (com.google.gson.JsonElement element : versions) {
+                if (!element.isJsonObject()) {
+                    continue;
+                }
+                com.google.gson.JsonObject obj = element.getAsJsonObject();
+                if (!obj.has("version_number") || !obj.has("date_published")) {
+                    continue;
+                }
+                String versionNumber = obj.get("version_number").getAsString();
+                String datePublished = obj.get("date_published").getAsString();
+                Instant publishedAt;
+                try {
+                    publishedAt = Instant.parse(datePublished);
+                } catch (Exception ignored) {
+                    continue;
+                }
+
+                if (latestDate == null || publishedAt.isAfter(latestDate)) {
+                    latestDate = publishedAt;
+                    latestVersion = versionNumber;
+                }
+            }
+
+            return latestVersion;
+        } catch (Exception ex) {
+            debugException(ex);
+            return null;
+        }
+    }
+
+    private String normalizeModrinthProject(String projectInput) {
+        if (projectInput == null) {
+            return "";
+        }
+        String trimmed = projectInput.trim();
+        if (trimmed.isEmpty()) {
+            return "";
+        }
+        while (trimmed.endsWith("/")) {
+            trimmed = trimmed.substring(0, trimmed.length() - 1);
+        }
+        String lower = trimmed.toLowerCase();
+        if (lower.contains("modrinth.com")) {
+            int lastSlash = trimmed.lastIndexOf('/');
+            if (lastSlash != -1 && lastSlash + 1 < trimmed.length()) {
+                String tail = trimmed.substring(lastSlash + 1);
+                int query = tail.indexOf('?');
+                if (query != -1) {
+                    tail = tail.substring(0, query);
+                }
+                if (tail.endsWith("/")) {
+                    tail = tail.substring(0, tail.length() - 1);
+                }
+                return tail.trim();
+            }
+        }
+        return trimmed;
     }
 
     /**
