@@ -41,8 +41,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 shadowJar {
-    archiveClassifier.set('') // Replace the default `-all` suffix
+    //archiveClassifier.set('') // Replace the default `-all` suffix
     mergeServiceFiles() // Ensures service files like HikariCP get merged
     relocate 'com.zaxxer.hikari', 'net.chamosmp.libs.hikari' // relocate to avoid conflicts
     relocate 'com.mysql', 'net.chamosmp.libs.mysql' // relocate MySQL driver
+    archiveClassifier.set('all') // optional, produces core-all.jar
 }

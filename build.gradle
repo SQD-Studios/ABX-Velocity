@@ -4,6 +4,7 @@ plugins {
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.8'
     id("xyz.jpenilla.run-velocity") version "2.3.1"
     id("com.gradleup.shadow") version "9.3.1"
+    id 'io.papermc.hangar-publish-plugin' version '0.1.2'
 }
 
 group = 'net.chamosmp'
@@ -88,3 +89,21 @@ project(":velocity").afterEvaluate { velocityProject ->
         logger.warn("Project ':velocity' has no shadowJar task; skipping root shadowJar/runVelocity wiring.")
     }
 }
+
+project(":paper").afterEvaluate { paperProject ->
+    def paperShadowJar = paperProject.tasks.findByName("shadowJar")
+
+    if (paperShadowJar != null) {
+        tasks.shadowJar {
+            dependsOn(paperShadowJar)
+            from {
+                zipTree(paperShadowJar.outputs.files.singleFile)
+            }
+        }
+    } else {
+        logger.warn("Project ':paper' has no shadowJar task; skipping root shadowJar wiring.")
+    }
+}
+
+
+
