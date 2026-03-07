@@ -113,23 +113,23 @@ public class Universal {
         }
 
         if (mi.getBoolean(mi.getConfig(), "DetailedEnableMessage", true)) {
-            String message = "\n\n<dark_gray>[]=====[<red>Enabling ABX Velocity</red>]=====[]</dark_gray>"
-                           + "\n<dark_gray>|</dark_gray> <red>Information:</red>"
-                           + "\n<dark_gray>|</dark_gray>   <red>Name:</red> <gray>ABX Velocity</gray>"
-                           + "\n<dark_gray>|</dark_gray>   <red>Developer:</red> <gray>Chamogelastos</gray>"
-                           + "\n<dark_gray>|</dark_gray>   <red>Organization:</red> <gray>SQD Studios</gray>"
-                           + "\n<dark_gray>|</dark_gray>   <red>Version:</red> <gray>" + mi.getVersion() + "</gray>"
-                           + "\n<dark_gray>|</dark_gray>   <red>Storage:</red> <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "</gray>"
-                           + "\n<dark_gray>|</dark_gray> <red>Support:</red>"
-                           + "\n<dark_gray>|</dark_gray>   <red>GitHub:</red> <gray>https://github.com/SQD-Studios/ABX-Velocity/issues</gray>"
-                           + "\n<dark_gray>|</dark_gray> <red>Update:</red>"
+            String message = "\n\n<dark_gray>[]=====[<#00ffe2>Enabling ABX Velocity</#00ffe2>]=====[]</dark_gray>"
+                           + "\n<dark_gray>|</dark_gray> <#00ffe2>Information:</#00ffe2>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>Name:</#00ffe2> <gray>ABX Velocity</gray>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>Developer:</#00ffe2> <gray>Chamogelastos</gray>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>Organization:</#00ffe2> <gray>SQD Studios</gray>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>Version:</#00ffe2> <gray>" + mi.getVersion() + "</gray>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>Storage:</#00ffe2> <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "</gray>"
+                           + "\n<dark_gray>|</dark_gray> <#00ffe2>Support:</#00ffe2>"
+                           + "\n<dark_gray>|</dark_gray>   <#00ffe2>GitHub:</#00ffe2> <gray>https://github.com/SQD-Studios/ABX-Velocity/issues</gray>"
+                           + "\n<dark_gray>|</dark_gray> <#00ffe2>Update:</#00ffe2>"
                            + "\n<dark_gray>|</dark_gray>   <gray>" + upt  + "</gray>"
                            + "\n<dark_gray>[]================================[]</dark_gray>\n ";
             
             mi.getLogger().info(SerializeMiniMessage(message));
         } else {
-            mi.getLogger().info(SerializeMiniMessage("<red>Enabling AdvancedBanX on Version</red> <gray>" + mi.getVersion() + "</gray>"));
-            mi.getLogger().info(SerializeMiniMessage("<red>Coded by <gray>Leoko</gray> <dark_gray>|</dark_gray> Maintained & Updated by <gray>2vY</gray></red>"));
+            mi.getLogger().info(SerializeMiniMessage("<#00ffe2>Enabling AdvancedBanX on Version</#00ffe2> <gray>" + mi.getVersion() + "</gray>"));
+            mi.getLogger().info(SerializeMiniMessage("<#00ffe2>Coded by <gray>Leoko</gray> <dark_gray>|</dark_gray> Maintained & Updated by <gray>2vY</gray></#00ffe2>"));
         }
     }
 
@@ -140,21 +140,21 @@ public class Universal {
         DatabaseManager.get().shutdown();
 
         if (mi.getBoolean(mi.getConfig(), "DetailedDisableMessage", true)) {
-            String message = "\n\n<dark_gray>[]=====[<red>Disabling ABX Velocity</red>]=====[]</dark_gray>"
-                    + "\n<dark_gray>|</dark_gray> <red>Information:</red>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Name:</red> <gray>ABX Velocity</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Developer:</red> <gray>Chamogelastos</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Organization:</red> <gray>SQD Studios</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Version:</red> <gray>" + mi.getVersion() + "</gray>"
-                    + "\n<dark_gray>|</dark_gray>   <red>Storage:</red> <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "</gray>"
-                    + "\n<dark_gray>|</dark_gray> <red>Support:</red>"
-                    + "\n<dark_gray>|</dark_gray>   <red>GitHub:</red> <gray>https://github.com/SQD-Studios/ABX-Velocity/issues</gray>"
+            String message = "\n\n<dark_gray>[]=====[<#00ffe2>Disabling ABX Velocity</#00ffe2>]=====[]</dark_gray>"
+                    + "\n<dark_gray>|</dark_gray> <#00ffe2>Information:</#00ffe2>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>Name:</#00ffe2> <gray>ABX Velocity</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>Developer:</#00ffe2> <gray>Chamogelastos</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>Organization:</#00ffe2> <gray>SQD Studios</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>Version:</#00ffe2> <gray>" + mi.getVersion() + "</gray>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>Storage:</#00ffe2> <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "</gray>"
+                    + "\n<dark_gray>|</dark_gray> <#00ffe2>Support:</#00ffe2>"
+                    + "\n<dark_gray>|</dark_gray>   <#00ffe2>GitHub:</#00ffe2> <gray>https://github.com/SQD-Studios/ABX-Velocity/issues</gray>"
                     + "\n<dark_gray>[]================================[]</dark_gray>\n ";
             
             mi.getLogger().info(SerializeMiniMessage(message));
         } else {
-            mi.getLogger().info(SerializeMiniMessage("<red>Disabling ABX Velocity on Version</red> <gray>" + mi.getVersion() + "</gray>"));
-            mi.getLogger().info(SerializeMiniMessage("<red>Coded by <gray>Chamogelastos</gray> <dark_gray>|</dark_gray> Organization:<gray>SQD Studios</gray></red>"));
+            mi.getLogger().info(SerializeMiniMessage("<#00ffe2>Disabling ABX Velocity on Version</#00ffe2> <gray>" + mi.getVersion() + "</gray>"));
+            mi.getLogger().info(SerializeMiniMessage("<#00ffe2>Coded by <gray>Chamogelastos</gray> <dark_gray>|</dark_gray> Organization:<gray>SQD Studios</gray></#00ffe2>"));
         }
     }
 
