@@ -12,6 +12,9 @@
 
 Please contact us privately, so fewer people can use it to their advantage.
 Contact List:
+
 Discord:
  - chamogelastos
  - hamstar.gz
+
+Or with GitHub private messages
