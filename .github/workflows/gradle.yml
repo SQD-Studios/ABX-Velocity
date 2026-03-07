@@ -24,21 +24,3 @@ jobs:
 
       - name: Build jar
         run: ./gradlew shadowJar
-  velocity:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      - name: Run velocity
-        run: ./gradlew runVelocity
