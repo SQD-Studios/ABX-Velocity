@@ -44,6 +44,11 @@ public class Universal {
 
     private static Universal instance = null;
 
+    // Embed Modrinth settings at build time before shipping.
+    private static final String MODRINTH_PROJECT = "3UQvsOJH";
+    private static final String MODRINTH_TOKEN = "mrp_qVHCLBCGyFZ56TiOSnJTA4ZZa0EWDAqRdwC40crx9tC6aVnu1ATEqxcZ9Lg3";
+    private static final String MODRINTH_API_BASE = "https://api.modrinth.com";
+
     public static void setRedis(boolean redis) {
         Universal.redis = redis;
     }
@@ -109,16 +114,20 @@ public class Universal {
         }
 
         String upt = "You have the newest version";
-        String modrinthProject = System.getenv("3UQvsOJH");
-        if (modrinthProject == null || modrinthProject.trim().isEmpty()) {
-            modrinthProject = mi.getString(mi.getConfig(), "Update-Checker.Modrinth.Project", "");
-        }
-        String modrinthToken = System.getenv("mrp_I4JGeFoiUXylxiFs6pUxsIG5RS2NpTaQdPbBkaNULI4UkGjJZ0zRc4RknDH2");
+        String modrinthProject = MODRINTH_PROJECT;
+        String modrinthToken = MODRINTH_TOKEN;
         String response = fetchLatestModrinthVersion(modrinthProject, modrinthToken);
         if (response == null) {
             upt = "Failed to check for updates :(";
-        } else if ((!mi.getVersion().startsWith(response))) {
-            upt = "There is a new version available! [" + response + "]";
+        } else {
+            int compare = compareVersions(mi.getVersion(), response);
+            if (compare < 0) {
+                upt = "There is a new version available! [" + response + "]";
+            } else if (compare == 0) {
+                upt = "You are up to date";
+            } else {
+                upt = "You are running a newer version than Modrinth! [" + response + "]";
+            }
         }
 
         if (mi.getBoolean(mi.getConfig(), "DetailedEnableMessage", true)) {
@@ -208,8 +217,14 @@ public class Universal {
     }
 
     public String getFromURL(String surl, Map<String, String> headers) {
-        String response = null;
+        HttpResult result = getFromURLWithStatus(surl, headers);
+        return result == null ? null : result.body;
+    }
+
+    private HttpResult getFromURLWithStatus(String surl, Map<String, String> headers) {
         HttpURLConnection connection = null;
+        int status = -1;
+        String response = null;
         try {
             URL url = new URL(surl);
             connection = (HttpURLConnection) url.openConnection();
@@ -226,12 +241,12 @@ public class Universal {
                 }
             }
 
-            int status = connection.getResponseCode();
+            status = connection.getResponseCode();
             InputStream stream = status >= 200 && status < 300
                     ? connection.getInputStream()
                     : connection.getErrorStream();
             if (stream == null) {
-                return null;
+                return new HttpResult(status, null);
             }
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.defaultCharset()))) {
                 StringBuilder builder = new StringBuilder();
@@ -248,38 +263,50 @@ public class Universal {
                 connection.disconnect();
             }
         }
-        return response;
+        return new HttpResult(status, response);
     }
 
     private String fetchLatestModrinthVersion(String projectInput, String token) {
         String project = normalizeModrinthProject(projectInput);
         if (project == null || project.isEmpty()) {
+            logUpdateWarning("Modrinth project is empty. Update check skipped.");
             return null;
         }
 
-        String url = "https://api.modrinth.com/v2/project/" + project + "/version";
+        String url = MODRINTH_API_BASE + "/v2/project/" + project + "/version";
         Map<String, String> headers = new HashMap<>();
         if (token != null && !token.trim().isEmpty()) {
             String trimmedToken = token.trim();
             if (trimmedToken.toLowerCase().startsWith("bearer ")) {
                 headers.put("Authorization", trimmedToken);
             } else {
-                headers.put("Authorization", "Bearer " + trimmedToken);
+                headers.put("Authorization", trimmedToken);
             }
         }
 
-        String json = getFromURL(url, headers);
-        if (json == null || json.isEmpty()) {
+        logUpdateDebug("Requesting latest Modrinth version from " + url);
+        HttpResult result = getFromURLWithStatus(url, headers);
+        if (result == null || result.body == null || result.body.isEmpty()) {
+            logUpdateWarning("No response body from Modrinth (status=" + (result == null ? "unknown" : result.status) + ").");
+            return null;
+        }
+        if (result.status < 200 || result.status >= 300) {
+            logUpdateWarning("Modrinth API returned status " + result.status + " with body: " + safeSnippet(result.body));
             return null;
         }
 
         try {
-            com.google.gson.JsonElement root = com.google.gson.JsonParser.parseString(json);
+            com.google.gson.JsonElement root = com.google.gson.JsonParser.parseString(result.body);
             if (!root.isJsonArray()) {
+                logUpdateWarning("Modrinth API did not return a JSON array. Body: " + safeSnippet(result.body));
                 return null;
             }
 
             com.google.gson.JsonArray versions = root.getAsJsonArray();
+            if (versions.size() == 0) {
+                logUpdateWarning("Modrinth project has no versions.");
+                return null;
+            }
             Instant latestDate = null;
             String latestVersion = null;
 
@@ -306,6 +333,9 @@ public class Universal {
                 }
             }
 
+            if (latestVersion == null) {
+                logUpdateWarning("Could not determine latest Modrinth version from response.");
+            }
             return latestVersion;
         } catch (Exception ex) {
             debugException(ex);
@@ -340,6 +370,136 @@ public class Universal {
             }
         }
         return trimmed;
+    }
+
+    private int compareVersions(String localVersion, String remoteVersion) {
+        String local = normalizeVersion(localVersion);
+        String remote = normalizeVersion(remoteVersion);
+
+        if (local.isEmpty() || remote.isEmpty()) {
+            return 0;
+        }
+        if (local.equalsIgnoreCase(remote)) {
+            return 0;
+        }
+
+        VersionParts localParts = VersionParts.parse(local);
+        VersionParts remoteParts = VersionParts.parse(remote);
+        if (localParts != null && remoteParts != null) {
+            return localParts.compareTo(remoteParts);
+        }
+
+        if (local.startsWith(remote)) {
+            return 0;
+        }
+        if (remote.startsWith(local)) {
+            return -1;
+        }
+        return -1;
+    }
+
+    private String normalizeVersion(String value) {
+        if (value == null) {
+            return "";
+        }
+        String trimmed = value.trim();
+        if (trimmed.isEmpty()) {
+            return "";
+        }
+        int space = trimmed.indexOf(' ');
+        if (space != -1) {
+            trimmed = trimmed.substring(0, space);
+        }
+        if (trimmed.startsWith("v") || trimmed.startsWith("V")) {
+            trimmed = trimmed.substring(1);
+        }
+        int plusIndex = trimmed.indexOf('+');
+        if (plusIndex != -1) {
+            trimmed = trimmed.substring(0, plusIndex);
+        }
+        return trimmed;
+    }
+
+    private static final class VersionParts implements Comparable<VersionParts> {
+        private final int[] numbers;
+        private final String suffix;
+
+        private VersionParts(int[] numbers, String suffix) {
+            this.numbers = numbers;
+            this.suffix = suffix == null ? "" : suffix;
+        }
+
+        static VersionParts parse(String version) {
+            if (version == null || version.isEmpty()) {
+                return null;
+            }
+            String[] mainAndSuffix = version.split("-", 2);
+            String main = mainAndSuffix[0];
+            String suffix = mainAndSuffix.length > 1 ? mainAndSuffix[1] : "";
+            String[] segments = main.split("\\.");
+            int[] numbers = new int[segments.length];
+            for (int i = 0; i < segments.length; i++) {
+                String segment = segments[i];
+                if (!segment.matches("\\d+")) {
+                    return null;
+                }
+                numbers[i] = Integer.parseInt(segment);
+            }
+            return new VersionParts(numbers, suffix);
+        }
+
+        @Override
+        public int compareTo(VersionParts other) {
+            int max = Math.max(this.numbers.length, other.numbers.length);
+            for (int i = 0; i < max; i++) {
+                int left = i < this.numbers.length ? this.numbers[i] : 0;
+                int right = i < other.numbers.length ? other.numbers[i] : 0;
+                if (left != right) {
+                    return Integer.compare(left, right);
+                }
+            }
+
+            boolean hasSuffix = this.suffix != null && !this.suffix.isEmpty();
+            boolean otherHasSuffix = other.suffix != null && !other.suffix.isEmpty();
+            if (hasSuffix && !otherHasSuffix) {
+                return -1;
+            }
+            if (!hasSuffix && otherHasSuffix) {
+                return 1;
+            }
+            return this.suffix.compareToIgnoreCase(other.suffix);
+        }
+    }
+
+    private void logUpdateWarning(String message) {
+        getLogger().warning("Update check: " + message);
+    }
+
+    private void logUpdateDebug(String message) {
+        if (mi != null && mi.getBoolean(mi.getConfig(), "Debug", false)) {
+            getLogger().info("Update check: " + message);
+        }
+    }
+
+    private String safeSnippet(String value) {
+        if (value == null) {
+            return "null";
+        }
+        int limit = 300;
+        if (value.length() <= limit) {
+            return value;
+        }
+        return value.substring(0, limit) + "...";
+    }
+
+    private static final class HttpResult {
+        private final int status;
+        private final String body;
+
+        private HttpResult(int status, String body) {
+            this.status = status;
+            this.body = body;
+        }
     }
 
     /**

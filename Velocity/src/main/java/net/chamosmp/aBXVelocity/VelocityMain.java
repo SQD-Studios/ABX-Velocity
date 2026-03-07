@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 @Plugin(
         id = "abxvelocity",
         name = "ABX Velocity",
-        version = "1.0",
+        version = "1.1",
         description = "AdvancedBanX for Velocity",
         authors = {"Chamogelastos"}
 )
