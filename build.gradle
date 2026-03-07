@@ -70,17 +70,21 @@ tasks.named("runVelocity") {
 }
 
 project(":velocity").afterEvaluate { velocityProject ->
-    def velocityShadowJar = velocityProject.tasks.named("shadowJar")
+    def velocityShadowJar = velocityProject.tasks.findByName("shadowJar")
 
-    tasks.shadowJar {
-        dependsOn(velocityShadowJar)
-        from {
-            zipTree(velocityShadowJar.get().archiveFile.get().asFile)
+    if (velocityShadowJar != null) {
+        tasks.shadowJar {
+            dependsOn(velocityShadowJar)
+            from {
+                zipTree(velocityShadowJar.outputs.files.singleFile)
+            }
         }
-    }
 
-    tasks.named("runVelocity") {
-        dependsOn(velocityShadowJar)
-        pluginJars.setFrom(velocityShadowJar.flatMap { it.archiveFile })
+        tasks.named("runVelocity") {
+            dependsOn(velocityShadowJar)
+            pluginJars.setFrom(velocityShadowJar.outputs.files)
+        }
+    } else {
+        logger.warn("Project ':velocity' has no shadowJar task; skipping root shadowJar/runVelocity wiring.")
     }
 }
