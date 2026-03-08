@@ -38,7 +38,7 @@ public class PunishmentTabCompleter implements TabCompleter {
         } else if(temporary && args.length == 2){
             String current = args[args.length-1];
             String amount = current.toLowerCase().split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)")[0];
-            if(current.equals(""))
+            if(current.isEmpty())
                 amount = "X";
 
             if(amount.matches("\\d+|X")){
