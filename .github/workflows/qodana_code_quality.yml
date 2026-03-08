@@ -19,6 +19,9 @@ jobs:
       pull-requests: write
       checks: write
     steps:
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
