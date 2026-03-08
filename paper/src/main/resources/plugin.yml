@@ -1,10 +1,11 @@
-name: ChaBans
+name: ABX Velocity
 version: ${version}
 main: net.hnt8.advancedban.bukkit.BukkitMain
 authors: ["Chamogelastos", "SQD Studios"]
-prefix: ChaBans
+prefix: ABX Velocity
 softdepend: [Vault]
 api-version: 1.13
+folia-supported: true
 
 commands:
   AdvancedBan:
