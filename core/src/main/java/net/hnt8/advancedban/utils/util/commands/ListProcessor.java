@@ -1,10 +1,10 @@
-package net.hnt8.advancedban.utils.commands;
+package net.hnt8.advancedban.utils.util.commands;
 
-import net.hnt8.advancedban.MethodInterface;
-import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.manager.MessageManager;
-import net.hnt8.advancedban.utils.Command;
-import net.hnt8.advancedban.utils.Punishment;
+import net.hnt8.advancedban.utils.MethodInterface;
+import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.utils.manager.MessageManager;
+import net.hnt8.advancedban.utils.util.Command;
+import net.hnt8.advancedban.utils.util.Punishment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static net.hnt8.advancedban.utils.CommandUtils.processName;
+import static net.hnt8.advancedban.utils.util.CommandUtils.processName;
 
 public class ListProcessor implements Consumer<Command.CommandInput> {
     private final Function<String, List<Punishment>> listSupplier;

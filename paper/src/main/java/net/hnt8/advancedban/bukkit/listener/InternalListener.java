@@ -2,7 +2,7 @@ package net.hnt8.advancedban.bukkit.listener;
 
 import net.hnt8.advancedban.bukkit.event.PunishmentEvent;
 import net.hnt8.advancedban.bukkit.event.RevokePunishmentEvent;
-import net.hnt8.advancedban.utils.PunishmentType;
+import net.hnt8.advancedban.utils.util.PunishmentType;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

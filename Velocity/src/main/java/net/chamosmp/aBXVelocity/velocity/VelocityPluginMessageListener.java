@@ -11,11 +11,11 @@ import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.messages.ChannelIdentifier;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.chamosmp.aBXVelocity.VelocityMain;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.utils.PunishmentType;
-import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.manager.TimeManager;
-import net.hnt8.advancedban.manager.UUIDManager;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.util.PunishmentType;
+import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.utils.manager.TimeManager;
+import net.hnt8.advancedban.utils.manager.UUIDManager;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

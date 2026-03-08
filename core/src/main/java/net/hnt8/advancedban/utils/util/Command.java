@@ -1,20 +1,18 @@
-package net.hnt8.advancedban.utils;
+package net.hnt8.advancedban.utils.util;
 
-import net.hnt8.advancedban.MethodInterface;
-import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.manager.DatabaseManager;
-import net.hnt8.advancedban.manager.MessageManager;
-import net.hnt8.advancedban.manager.PunishmentManager;
-import net.hnt8.advancedban.manager.UUIDManager;
-import net.hnt8.advancedban.utils.commands.ListProcessor;
-import net.hnt8.advancedban.utils.commands.PunishmentProcessor;
-import net.hnt8.advancedban.utils.commands.RevokeByIdProcessor;
-import net.hnt8.advancedban.utils.commands.RevokeProcessor;
+import net.hnt8.advancedban.utils.MethodInterface;
+import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.utils.manager.DatabaseManager;
+import net.hnt8.advancedban.utils.manager.MessageManager;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.utils.util.commands.ListProcessor;
+import net.hnt8.advancedban.utils.util.commands.PunishmentProcessor;
+import net.hnt8.advancedban.utils.util.commands.RevokeByIdProcessor;
+import net.hnt8.advancedban.utils.util.commands.RevokeProcessor;
 import net.hnt8.advancedban.utils.tabcompletion.*;
-import net.hnt8.advancedban.utils.tabcompletion.BasicTabCompleter;
-import net.hnt8.advancedban.utils.tabcompletion.CleanTabCompleter;
-import net.hnt8.advancedban.utils.tabcompletion.MutableTabCompleter;
-import net.hnt8.advancedban.utils.tabcompletion.PunishmentTabCompleter;
+import net.hnt8.advancedban.utils.util.tabcompletion.*;
+import net.hnt8.utils.utils.tabcompletion.*;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Calendar;
@@ -23,7 +21,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static net.hnt8.advancedban.utils.CommandUtils.*;
+import static net.hnt8.advancedban.utils.util.CommandUtils.*;
 
 public enum Command {
     BAN(

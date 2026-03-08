@@ -1,9 +1,9 @@
-package net.hnt8.advancedban.manager;
+package net.hnt8.advancedban.utils.manager;
 
 import com.zaxxer.hikari.HikariDataSource;
-import net.hnt8.advancedban.utils.DynamicDataSource;
-import net.hnt8.advancedban.utils.SQLQuery;
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.util.DynamicDataSource;
+import net.hnt8.advancedban.utils.util.SQLQuery;
+import net.hnt8.advancedban.utils.Universal;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetFactory;

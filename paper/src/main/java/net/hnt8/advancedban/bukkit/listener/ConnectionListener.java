@@ -1,8 +1,8 @@
 package net.hnt8.advancedban.bukkit.listener;
 
-import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.manager.PunishmentManager;
-import net.hnt8.advancedban.manager.UUIDManager;
+import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.UUIDManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.ChatColor;

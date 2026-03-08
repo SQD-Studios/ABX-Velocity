@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.bukkit;
 
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.Universal;
 import net.hnt8.advancedban.bukkit.listener.ChatListener;
 import net.hnt8.advancedban.bukkit.listener.CommandListener;
 import net.hnt8.advancedban.bukkit.listener.ConnectionListener;

@@ -1,17 +1,17 @@
 package net.hnt8.advancedban.bukkit;
 
-import net.hnt8.advancedban.MethodInterface;
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.MethodInterface;
+import net.hnt8.advancedban.utils.Universal;
 import net.hnt8.advancedban.bukkit.event.PunishmentEvent;
 import net.hnt8.advancedban.bukkit.event.RevokePunishmentEvent;
 import net.hnt8.advancedban.bukkit.listener.CommandReceiver;
 import net.hnt8.advancedban.bukkit.utils.BukkitMetrics;
-import net.hnt8.advancedban.manager.DatabaseManager;
-import net.hnt8.advancedban.manager.PunishmentManager;
-import net.hnt8.advancedban.manager.UUIDManager;
-import net.hnt8.advancedban.utils.Permissionable;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.utils.tabcompletion.TabCompleter;
+import net.hnt8.advancedban.utils.manager.DatabaseManager;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.utils.util.Permissionable;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.util.tabcompletion.TabCompleter;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;

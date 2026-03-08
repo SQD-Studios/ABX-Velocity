@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.bukkit.listener;
 
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.Universal;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

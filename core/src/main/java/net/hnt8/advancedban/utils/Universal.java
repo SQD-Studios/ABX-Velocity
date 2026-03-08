@@ -1,15 +1,14 @@
-package net.hnt8.advancedban;
+package net.hnt8.advancedban.utils;
 
 import com.google.gson.Gson;
-import net.hnt8.advancedban.utils.manager.*;
-import net.hnt8.advancedban.manager.UUIDManager;
-import net.hnt8.advancedban.utils.Command;
-import net.hnt8.advancedban.utils.InterimData;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.manager.DatabaseManager;
-import net.hnt8.advancedban.manager.LogManager;
-import net.hnt8.advancedban.manager.PunishmentManager;
-import net.hnt8.advancedban.manager.UpdateManager;
+import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.utils.util.Command;
+import net.hnt8.advancedban.utils.util.InterimData;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.manager.DatabaseManager;
+import net.hnt8.advancedban.utils.manager.LogManager;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.UpdateManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.ansi.ANSIComponentSerializer;

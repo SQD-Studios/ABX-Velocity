@@ -1,6 +1,6 @@
-package net.hnt8.advancedban.utils;
+package net.hnt8.advancedban.utils.util;
 
-import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
 
 import java.util.Set;
 

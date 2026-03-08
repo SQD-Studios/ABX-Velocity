@@ -1,15 +1,15 @@
-package net.hnt8.advancedban.utils.commands;
+package net.hnt8.advancedban.utils.util.commands;
 
-import net.hnt8.advancedban.MethodInterface;
-import net.hnt8.advancedban.Universal;
-import net.hnt8.advancedban.manager.MessageManager;
-import net.hnt8.advancedban.manager.PunishmentManager;
-import net.hnt8.advancedban.manager.TimeManager;
-import net.hnt8.advancedban.utils.Command;
-import net.hnt8.advancedban.utils.Permissionable;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.utils.PunishmentType;
-import net.hnt8.advancedban.utils.CommandUtils;
+import net.hnt8.advancedban.utils.MethodInterface;
+import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.utils.manager.MessageManager;
+import net.hnt8.advancedban.utils.manager.PunishmentManager;
+import net.hnt8.advancedban.utils.manager.TimeManager;
+import net.hnt8.advancedban.utils.util.Command;
+import net.hnt8.advancedban.utils.util.Permissionable;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.util.PunishmentType;
+import net.hnt8.advancedban.utils.util.CommandUtils;
 
 import java.util.List;
 import java.util.function.Consumer;

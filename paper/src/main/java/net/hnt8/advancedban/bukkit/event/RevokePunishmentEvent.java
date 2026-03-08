@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.bukkit.event;
 
-import net.hnt8.advancedban.utils.Punishment;
+import net.hnt8.advancedban.utils.util.Punishment;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 

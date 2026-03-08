@@ -1,9 +1,9 @@
-package net.hnt8.advancedban.utils;
+package net.hnt8.advancedban.utils.util;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import net.hnt8.advancedban.MethodInterface;
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.MethodInterface;
+import net.hnt8.advancedban.utils.Universal;
 
 public class DynamicDataSource {
     private final HikariConfig config = new HikariConfig();

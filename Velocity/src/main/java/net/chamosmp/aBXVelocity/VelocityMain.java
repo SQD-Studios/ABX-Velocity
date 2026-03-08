@@ -13,7 +13,7 @@ import net.chamosmp.aBXVelocity.cloud.CloudSupportHandler;
 import net.chamosmp.aBXVelocity.velocity.VelocityChatListener;
 import net.chamosmp.aBXVelocity.velocity.VelocityConnectionListener;
 import net.chamosmp.aBXVelocity.velocity.VelocityPluginMessageListener;
-import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.utils.Universal;
 import org.bstats.charts.SimplePie;
 import org.bstats.velocity.Metrics;
 
