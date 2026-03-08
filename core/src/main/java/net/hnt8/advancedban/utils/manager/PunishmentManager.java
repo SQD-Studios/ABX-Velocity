@@ -1,5 +1,6 @@
 package net.hnt8.advancedban.utils.manager;
 
+import net.hnt8.advancedban.utils.MethodInterface;
 import net.hnt8.advancedban.utils.Universal;
 import net.hnt8.advancedban.utils.util.InterimData;
 import net.hnt8.advancedban.utils.util.Punishment;
@@ -9,6 +10,7 @@ import net.hnt8.advancedban.utils.util.SQLQuery;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import static net.hnt8.advancedban.utils.util.Punishment.mi;
 
 /**
  * The Punishment Manager handles the punishments. It loads and parses them from the database, caches them
@@ -40,10 +42,10 @@ public class PunishmentManager {
     public void setup() {
         DatabaseManager.get().executeStatement(SQLQuery.DELETE_OLD_PUNISHMENTS, TimeManager.getTime());
         // Seems useless as the Interim Data which get's loaded just is ignored
-//        for (Object player : mi.getOnlinePlayers()) {
-//            String name = mi.getName(player).toLowerCase();
-//            load(name, UUIDManager.get().getUUID(name), mi.getIP(player));
-//        }
+          for (Object player : mi.getOnlinePlayers()) {
+              String name = mi.getName(player).toLowerCase();
+              load(name, UUIDManager.get().getUUID(name), mi.getIP(player));
+          }
     }
 
     /**
@@ -417,17 +419,17 @@ public class PunishmentManager {
     }
 
 
-//    public long getCalculation(String layout, String name, String uuid) {
-//        long end = TimeManager.getTime();
-//        MethodInterface mi = Universal.get().getMethods();
-//
-//        int i = getCalculationLevel(name, uuid);
-//
-//        List<String> timeLayout = mi.getStringList(mi.getLayouts(), "Time." + layout);
-//        String time = timeLayout.get(timeLayout.size() <= i ? timeLayout.size() - 1 : i);
-//        long toAdd = TimeManager.toMilliSec(time.toLowerCase());
-//        end += toAdd;
-//
-//        return end;
-//    }
+      public long getCalculation(String layout, String name, String uuid) {
+          long end = TimeManager.getTime();
+          MethodInterface mi = Universal.get().getMethods();
+
+          int i = getCalculationLevel(name, uuid);
+
+          List<String> timeLayout = mi.getStringList(mi.getLayouts(), "Time." + layout);
+          String time = timeLayout.get(timeLayout.size() <= i ? timeLayout.size() - 1 : i);
+          long toAdd = TimeManager.toMilliSec(time.toLowerCase());
+          end += toAdd;
+
+          return end;
+      }
 }

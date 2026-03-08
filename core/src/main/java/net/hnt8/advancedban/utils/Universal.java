@@ -277,11 +277,7 @@ public class Universal {
         Map<String, String> headers = new HashMap<>();
         if (token != null && !token.trim().isEmpty()) {
             String trimmedToken = token.trim();
-            if (trimmedToken.toLowerCase().startsWith("bearer ")) {
-                headers.put("Authorization", trimmedToken);
-            } else {
-                headers.put("Authorization", trimmedToken);
-            }
+            headers.put("Authorization", trimmedToken);
         }
 
         logUpdateDebug("Requesting latest Modrinth version from " + url);
@@ -391,9 +387,6 @@ public class Universal {
 
         if (local.startsWith(remote)) {
             return 0;
-        }
-        if (remote.startsWith(local)) {
-            return -1;
         }
         return -1;
     }

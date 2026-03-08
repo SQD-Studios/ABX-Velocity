@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class Punishment {
 
-    private static final MethodInterface mi = Universal.get().getMethods();
+    public static final MethodInterface mi = Universal.get().getMethods();
     private final String name, uuid, operator, calculation;
     private final long start, end;
     private final PunishmentType type;
