@@ -10,3 +10,5 @@
 /bin/
 /target/
 /.ai/
+/paper/.gradle/
+/paper/build/
