@@ -1,8 +1,8 @@
 package net.hnt8.advancedban.utils;
 
-import net.hnt8.advancedban.utils.Permissionable;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.utils.tabcompletion.TabCompleter;
+import net.hnt8.advancedban.utils.util.Permissionable;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.util.tabcompletion.TabCompleter;
 
 import java.io.File;
 import java.io.InputStreamReader;

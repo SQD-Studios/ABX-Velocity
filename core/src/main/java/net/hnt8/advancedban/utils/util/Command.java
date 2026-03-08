@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.utils;
+package net.hnt8.advancedban.utils.util;
 
 import net.hnt8.advancedban.utils.MethodInterface;
 import net.hnt8.advancedban.utils.Universal;
@@ -6,16 +6,15 @@ import net.hnt8.advancedban.utils.manager.DatabaseManager;
 import net.hnt8.advancedban.utils.manager.MessageManager;
 import net.hnt8.advancedban.utils.manager.PunishmentManager;
 import net.hnt8.advancedban.utils.manager.UUIDManager;
-import net.hnt8.advancedban.utils.commands.ListProcessor;
-import net.hnt8.advancedban.utils.commands.PunishmentProcessor;
-import net.hnt8.advancedban.utils.commands.RevokeByIdProcessor;
-import net.hnt8.advancedban.utils.commands.RevokeProcessor;
-import net.hnt8.advancedban.utils.tabcompletion.*;
-import net.hnt8.advancedban.utils.tabcompletion.*;
-import net.hnt8.advancedban.utils.utils.tabcompletion.BasicTabCompleter;
-import net.hnt8.advancedban.utils.utils.tabcompletion.CleanTabCompleter;
-import net.hnt8.advancedban.utils.utils.tabcompletion.MutableTabCompleter;
-import net.hnt8.advancedban.utils.utils.tabcompletion.PunishmentTabCompleter;
+import net.hnt8.advancedban.utils.util.commands.ListProcessor;
+import net.hnt8.advancedban.utils.util.commands.PunishmentProcessor;
+import net.hnt8.advancedban.utils.util.commands.RevokeByIdProcessor;
+import net.hnt8.advancedban.utils.util.commands.RevokeProcessor;
+import net.hnt8.advancedban.utils.util.tabcompletion.*;
+import net.hnt8.advancedban.utils.util.tabcompletion.BasicTabCompleter;
+import net.hnt8.advancedban.utils.util.tabcompletion.CleanTabCompleter;
+import net.hnt8.advancedban.utils.util.tabcompletion.MutableTabCompleter;
+import net.hnt8.advancedban.utils.util.tabcompletion.PunishmentTabCompleter;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Calendar;
@@ -24,7 +23,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static net.hnt8.advancedban.utils.utils.CommandUtils.*;
+import static net.hnt8.advancedban.utils.util.CommandUtils.*;
 
 public enum Command {
     BAN(

@@ -1,10 +1,10 @@
 package net.hnt8.advancedban.utils.manager;
 
 import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.InterimData;
-import net.hnt8.advancedban.utils.Punishment;
-import net.hnt8.advancedban.utils.PunishmentType;
-import net.hnt8.advancedban.utils.SQLQuery;
+import net.hnt8.advancedban.utils.util.InterimData;
+import net.hnt8.advancedban.utils.util.Punishment;
+import net.hnt8.advancedban.utils.util.PunishmentType;
+import net.hnt8.advancedban.utils.util.SQLQuery;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

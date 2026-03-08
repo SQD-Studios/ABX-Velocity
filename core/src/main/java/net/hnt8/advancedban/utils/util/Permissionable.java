@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.utils;
+package net.hnt8.advancedban.utils.util;
 
 /**
  * The Permissionable interface defines a way to query whether the implementing object has a certain permission.

@@ -1,6 +1,6 @@
 package net.chamosmp.aBXVelocity.utils;
 
-import net.hnt8.advancedban.utils.utils.Permissionable;
+import net.hnt8.advancedban.utils.util.Permissionable;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.model.user.UserManager;

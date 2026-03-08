@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.utils;
+package net.hnt8.advancedban.utils.util;
 
 /**
  * Created by Leoko @ dev.skamps.eu on 30.05.2016.

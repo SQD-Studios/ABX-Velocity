@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils.utils.tabcompletion;
+package net.hnt8.advancedban.utils.util.tabcompletion;
 
 import net.hnt8.advancedban.utils.MethodInterface;
 import net.hnt8.advancedban.utils.Universal;

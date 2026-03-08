@@ -1,9 +1,9 @@
-package net.hnt8.advancedban.utils.utils.commands;
+package net.hnt8.advancedban.utils.util.commands;
 
 import net.hnt8.advancedban.utils.Universal;
 import net.hnt8.advancedban.utils.manager.MessageManager;
-import net.hnt8.advancedban.utils.utils.Command;
-import net.hnt8.advancedban.utils.utils.Punishment;
+import net.hnt8.advancedban.utils.util.Command;
+import net.hnt8.advancedban.utils.util.Punishment;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

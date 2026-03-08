@@ -4,7 +4,7 @@ import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.hnt8.advancedban.utils.Universal;
 import net.hnt8.advancedban.utils.manager.CommandManager;
-import net.hnt8.advancedban.utils.utils.tabcompletion.TabCompleter;
+import net.hnt8.advancedban.utils.util.tabcompletion.TabCompleter;
 
 import java.util.List;
 
