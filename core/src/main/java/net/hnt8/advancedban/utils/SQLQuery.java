@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.utils;
 
-import net.hnt8.advancedban.utils.manager.DatabaseManager;
+import net.hnt8.advancedban.manager.DatabaseManager;
 
 /**
  * Created by Leo on 29.07.2017.

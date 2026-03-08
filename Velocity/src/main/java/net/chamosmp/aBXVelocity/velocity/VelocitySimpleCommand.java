@@ -2,8 +2,8 @@ package net.chamosmp.aBXVelocity.velocity;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.CommandManager;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.CommandManager;
 
 import java.util.List;
 

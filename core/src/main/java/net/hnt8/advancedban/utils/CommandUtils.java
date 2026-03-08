@@ -1,10 +1,10 @@
 package net.hnt8.advancedban.utils;
 
-import net.hnt8.advancedban.utils.MethodInterface;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.MessageManager;
-import net.hnt8.advancedban.utils.manager.PunishmentManager;
-import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.MethodInterface;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.MessageManager;
+import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.manager.UUIDManager;
 
 public class CommandUtils {
     public static Punishment getPunishment(String target, PunishmentType type) {

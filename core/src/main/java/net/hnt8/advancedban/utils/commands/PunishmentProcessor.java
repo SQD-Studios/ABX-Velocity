@@ -1,10 +1,10 @@
 package net.hnt8.advancedban.utils.commands;
 
-import net.hnt8.advancedban.utils.MethodInterface;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.MessageManager;
-import net.hnt8.advancedban.utils.manager.PunishmentManager;
-import net.hnt8.advancedban.utils.manager.TimeManager;
+import net.hnt8.advancedban.MethodInterface;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.MessageManager;
+import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.manager.TimeManager;
 import net.hnt8.advancedban.utils.Command;
 import net.hnt8.advancedban.utils.Permissionable;
 import net.hnt8.advancedban.utils.Punishment;

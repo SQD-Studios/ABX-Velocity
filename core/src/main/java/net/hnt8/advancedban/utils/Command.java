@@ -1,16 +1,15 @@
 package net.hnt8.advancedban.utils;
 
-import net.hnt8.advancedban.utils.MethodInterface;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.DatabaseManager;
-import net.hnt8.advancedban.utils.manager.MessageManager;
-import net.hnt8.advancedban.utils.manager.PunishmentManager;
-import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.MethodInterface;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.DatabaseManager;
+import net.hnt8.advancedban.manager.MessageManager;
+import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.manager.UUIDManager;
 import net.hnt8.advancedban.utils.commands.ListProcessor;
 import net.hnt8.advancedban.utils.commands.PunishmentProcessor;
 import net.hnt8.advancedban.utils.commands.RevokeByIdProcessor;
 import net.hnt8.advancedban.utils.commands.RevokeProcessor;
-import net.hnt8.advancedban.utils.tabcompletion.*;
 import net.hnt8.advancedban.utils.tabcompletion.*;
 import net.hnt8.advancedban.utils.tabcompletion.BasicTabCompleter;
 import net.hnt8.advancedban.utils.tabcompletion.CleanTabCompleter;

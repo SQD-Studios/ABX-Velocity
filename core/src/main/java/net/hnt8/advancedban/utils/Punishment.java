@@ -1,11 +1,11 @@
 package net.hnt8.advancedban.utils;
 
-import net.hnt8.advancedban.utils.MethodInterface;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.DatabaseManager;
-import net.hnt8.advancedban.utils.manager.MessageManager;
-import net.hnt8.advancedban.utils.manager.PunishmentManager;
-import net.hnt8.advancedban.utils.manager.TimeManager;
+import net.hnt8.advancedban.MethodInterface;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.DatabaseManager;
+import net.hnt8.advancedban.manager.MessageManager;
+import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.manager.TimeManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

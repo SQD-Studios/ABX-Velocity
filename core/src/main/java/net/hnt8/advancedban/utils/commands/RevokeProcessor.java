@@ -1,7 +1,7 @@
 package net.hnt8.advancedban.utils.commands;
 
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.MessageManager;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.MessageManager;
 import net.hnt8.advancedban.utils.Command;
 import net.hnt8.advancedban.utils.Punishment;
 import net.hnt8.advancedban.utils.PunishmentType;

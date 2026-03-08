@@ -6,9 +6,9 @@ import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.LoginEvent;
 import com.velocitypowered.api.event.ResultedEvent;
 import com.velocitypowered.api.proxy.Player;
-import net.hnt8.advancedban.utils.Universal;
-import net.hnt8.advancedban.utils.manager.PunishmentManager;
-import net.hnt8.advancedban.utils.manager.UUIDManager;
+import net.hnt8.advancedban.Universal;
+import net.hnt8.advancedban.manager.PunishmentManager;
+import net.hnt8.advancedban.manager.UUIDManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 

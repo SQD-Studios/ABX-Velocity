@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.utils.tabcompletion;
 
-import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.Universal;
 
 import java.util.ArrayList;
 

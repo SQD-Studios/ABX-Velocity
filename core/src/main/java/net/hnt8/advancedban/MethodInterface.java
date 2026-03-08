@@ -1,4 +1,4 @@
-package net.hnt8.advancedban.utils;
+package net.hnt8.advancedban;
 
 import net.hnt8.advancedban.utils.Permissionable;
 import net.hnt8.advancedban.utils.Punishment;

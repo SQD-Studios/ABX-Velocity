@@ -1,6 +1,6 @@
 package net.hnt8.advancedban.bukkit.listener;
 
-import net.hnt8.advancedban.utils.manager.CommandManager;
+import net.hnt8.advancedban.manager.CommandManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

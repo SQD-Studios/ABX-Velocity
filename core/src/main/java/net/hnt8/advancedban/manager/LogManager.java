@@ -1,6 +1,6 @@
-package net.hnt8.advancedban.utils.manager;
+package net.hnt8.advancedban.manager;
 
-import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.Universal;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

@@ -1,7 +1,7 @@
 package net.hnt8.advancedban.utils.tabcompletion;
 
-import net.hnt8.advancedban.utils.MethodInterface;
-import net.hnt8.advancedban.utils.Universal;
+import net.hnt8.advancedban.MethodInterface;
+import net.hnt8.advancedban.Universal;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
