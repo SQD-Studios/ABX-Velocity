@@ -60,7 +60,10 @@ public class BukkitMethods implements MethodInterface {
         // Vault support
         if (Bukkit.getServer().getPluginManager().getPlugin("Vault") != null) {
             RegisteredServiceProvider<net.milkbowl.vault.permission.Permission> rsp = Bukkit.getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
-            permissionVault = (player, perms) -> rsp.getProvider().playerHas(null, player, perms);
+            permissionVault = (player, perms) -> {
+                assert rsp != null;
+                return rsp.getProvider().playerHas(null, player, perms);
+            };
         }
     }
 
@@ -200,7 +203,7 @@ public class BukkitMethods implements MethodInterface {
     @Override
     public Permissionable getOfflinePermissionPlayer(String name) {
         OfflinePlayer player = Bukkit.getOfflinePlayer(name);
-        if (permissionVault == null || player == null || !player.hasPlayedBefore())
+        if (permissionVault == null || !player.hasPlayedBefore())
             return permission -> false;
 
         return permission -> permissionVault.apply(player, permission);

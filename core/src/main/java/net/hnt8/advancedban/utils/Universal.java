@@ -113,7 +113,7 @@ public class Universal {
             }
         }
 
-        String upt = "You have the newest version";
+        String upt;
         String modrinthProject = MODRINTH_PROJECT;
         String modrinthToken = MODRINTH_TOKEN;
         String response = fetchLatestModrinthVersion(modrinthProject, modrinthToken);

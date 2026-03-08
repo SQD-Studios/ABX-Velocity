@@ -29,6 +29,7 @@ public class LogManager {
         checkLastLog(true);
         File[] fList = logsFolder.listFiles();
         // Auto purge for old logs
+        assert fList != null;
         for (File file : fList) {
             if (file.isFile() && file.getName().contains(".gz") && (System.currentTimeMillis() - file.lastModified()) >= universal.getMethods().getInteger(universal.getMethods().getConfig(), "Log Purge Days") * 86400000L) {
                 file.delete();

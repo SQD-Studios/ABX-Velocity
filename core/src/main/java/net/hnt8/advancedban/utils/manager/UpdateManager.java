@@ -34,8 +34,6 @@ public class UpdateManager {
     public void setup() {
         MethodInterface mi = Universal.get().getMethods();
 
-        if (mi.isUnitTesting()) {
-        }
     }
 
     private void addMessage(String search, String insert, int indexOffset) {
