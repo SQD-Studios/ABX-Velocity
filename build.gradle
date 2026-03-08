@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'net.chamosmp'
-version = '1.2'
+version = '1.2.1'
 
 repositories {
     mavenCentral()
@@ -46,8 +46,10 @@ if (project.idea?.project != null) {
 project.eclipse.synchronizationTasks(generateTemplates)
 
 tasks.shadowJar {
-    configurations = []
+    configurations = [project.configurations.runtimeClasspath]
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    relocate("org.bstats", project.group.toString())
 }
 
 tasks {
