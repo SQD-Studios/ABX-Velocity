@@ -1,7 +1,7 @@
 {
   "id": "abxvelocity",
   "name": "ABX Velocity",
-  "version": "1.3",
+  "version": "1.2.1",
   "main": "net.chamosmp.aBXVelocity.VelocityMain",
   "authors": [
     "Chamogelastos",

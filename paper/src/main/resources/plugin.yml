@@ -1,4 +1,4 @@
-name: ABX Velocity
+name: ABXVelocity
 version: ${version}
 main: net.hnt8.advancedban.bukkit.BukkitMain
 authors: ["Chamogelastos", "SQD Studios"]

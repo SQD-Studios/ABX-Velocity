@@ -12,3 +12,5 @@
 /.ai/
 /paper/.gradle/
 /paper/build/
+/paper/run/
+/velocity/run/

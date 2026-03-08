@@ -130,6 +130,8 @@ public class Universal {
             }
         }
 
+        log("AdvancedBanX v" + mi.getVersion() + " enabled | Storage: " + (DatabaseManager.get().isUseMySQL() ? "MySQL" : "HSQLDB"));
+
         if (mi.getBoolean(mi.getConfig(), "DetailedEnableMessage", true)) {
             String message = "\n\n<dark_gray>[]=====[<#00ffe2>Enabling ABX Velocity</#00ffe2>]=====[]</dark_gray>"
                            + "\n<dark_gray>|</dark_gray> <#00ffe2>Information:</#00ffe2>"
@@ -155,6 +157,7 @@ public class Universal {
      * Shutdown.
      */
     public void shutdown() {
+        log("AdvancedBanX shutting down");
         DatabaseManager.get().shutdown();
 
         if (mi.getBoolean(mi.getConfig(), "DetailedDisableMessage", true)) {
@@ -656,7 +659,9 @@ public class Universal {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         exc.printStackTrace(pw);
-        getLogger().fine(sw.toString());
+        String trace = sw.toString();
+        getLogger().fine(trace);
+        debugToFile(trace);
     }
 
     /**
@@ -665,31 +670,41 @@ public class Universal {
      * @param ex the ex
      */
     public void debugSqlException(SQLException ex) {
+        String errorMsg = "An error has occurred with the database, the error code is: '" + ex.getErrorCode() + "'";
+        String stateMsg = "The state of the sql is: " + ex.getSQLState();
+        String detailMsg = "Error message: " + ex.getMessage();
         if (mi.getBoolean(mi.getConfig(), "Debug", false)) {
-            getLogger().fine(SerializeMiniMessage("<gray>An error has occurred with the database, the error code is: '" + ex.getErrorCode() + "'</gray>"));
-            getLogger().fine(SerializeMiniMessage("<gray>The state of the sql is: " + ex.getSQLState() + "</gray>"));
-            getLogger().fine(SerializeMiniMessage("<gray>Error message: " + ex.getMessage() + "</gray>"));
+            getLogger().fine(SerializeMiniMessage("<gray>" + errorMsg + "</gray>"));
+            getLogger().fine(SerializeMiniMessage("<gray>" + stateMsg + "</gray>"));
+            getLogger().fine(SerializeMiniMessage("<gray>" + detailMsg + "</gray>"));
         }
+        debugToFile(errorMsg);
+        debugToFile(stateMsg);
+        debugToFile(detailMsg);
         debugException(ex);
+    }
+
+    public void log(Object msg) {
+        debugToFile(msg);
     }
 
     private void debugToFile(Object msg) {
         File debugFile = new File(mi.getDataFolder(), "logs/latest.log");
         if (!debugFile.exists()) {
             try {
+                debugFile.getParentFile().mkdirs();
                 debugFile.createNewFile();
             } catch (IOException ex) {
-                Universal.get().getMethods().getLogger().warning("An error has occurred creating the 'latest.log' file again, check your server.");
-                Universal.get().getMethods().getLogger().warning("Error message" + ex.getMessage());
+                mi.getLogger().warning("An error has occurred creating the 'latest.log' file: " + ex.getMessage());
+                return;
             }
-        } else {
+        } else if (logManager != null) {
             logManager.checkLastLog(false);
         }
         try {
             FileUtils.writeStringToFile(debugFile, "[" + new SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis()) + "] " + mi.clearFormatting(msg.toString()) + "\n", "UTF8", true);
         } catch (IOException ex) {
-            Universal.get().getMethods().getLogger().warning("An error has occurred writing to 'latest.log' file.");
-            Universal.get().getMethods().getLogger().warning(ex.getMessage());
+            mi.getLogger().warning("An error has occurred writing to 'latest.log' file: " + ex.getMessage());
         }
     }
 }

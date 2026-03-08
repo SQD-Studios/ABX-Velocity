@@ -2,7 +2,6 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.8'
-    id("xyz.jpenilla.run-velocity") version "2.3.1"
     id("com.gradleup.shadow") version "9.3.1"
     id 'io.papermc.hangar-publish-plugin' version '0.1.2'
 }
@@ -52,26 +51,6 @@ tasks.shadowJar {
     relocate("org.bstats", project.group.toString())
 }
 
-tasks {
-    runVelocity {
-        // Configure the Velocity version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        velocityVersion("3.4.0-SNAPSHOT")
-    }
-}
-
-runVelocityExtension {
-    detectPluginJar.set(false)
-}
-
-tasks.named("runVelocity") {
-    doFirst {
-        logger.lifecycle("RunVelocity pluginJars: " + pluginJars.files)
-        delete(fileTree("run/plugins") { include "*.jar" })
-    }
-}
-
 project(":velocity").afterEvaluate { velocityProject ->
     def velocityShadowJar = velocityProject.tasks.findByName("shadowJar")
 
@@ -83,29 +62,8 @@ project(":velocity").afterEvaluate { velocityProject ->
             }
         }
 
-        tasks.named("runVelocity") {
-            dependsOn(velocityShadowJar)
-            pluginJars.setFrom(velocityShadowJar.outputs.files)
-        }
-    } else {
-        logger.warn("Project ':velocity' has no shadowJar task; skipping root shadowJar/runVelocity wiring.")
     }
+
+
+
 }
-
-project(":paper").afterEvaluate { paperProject ->
-    def paperShadowJar = paperProject.tasks.findByName("shadowJar")
-
-    if (paperShadowJar != null) {
-        tasks.shadowJar {
-            dependsOn(paperShadowJar)
-            from {
-                zipTree(paperShadowJar.outputs.files.singleFile)
-            }
-        }
-    } else {
-        logger.warn("Project ':paper' has no shadowJar task; skipping root shadowJar wiring.")
-    }
-}
-
-
-
