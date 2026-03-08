@@ -4,7 +4,7 @@ import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.command.CommandExecuteEvent;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
 import com.velocitypowered.api.event.player.TabCompleteEvent;
-import net.hnt8.advancedban.utils.util.Command;
+import net.hnt8.advancedban.utils.utils.Command;
 import net.hnt8.advancedban.utils.Universal;
 
 public class VelocityChatListener {
