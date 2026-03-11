@@ -10,6 +10,13 @@ test {
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://libraries.minecraft.net"
+    }
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
 }
 
 dependencies {
@@ -30,6 +37,8 @@ dependencies {
 // Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
     implementation ('com.mysql:mysql-connector-j:9.6.0')
     compileOnly 'net.luckperms:api:5.4'
+    implementation("com.mojang:brigadier:1.0.18")
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
 }
 
 def targetJavaVersion = 21

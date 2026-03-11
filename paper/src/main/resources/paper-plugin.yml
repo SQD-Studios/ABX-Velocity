@@ -1,0 +1,16 @@
+name: ABXVelocity
+version: '1.2.1'
+main: net.hnt8.advancedban.bukkit.BukkitMain
+description: A fork of AdvancedBanX that adds velocity support
+api-version: '1.21.11'
+bootstrapper: net.hnt8.advancedban.bukkit.paper.Bootstrapper
+loader:
+folia-supported: true
+dependencies:
+  server:
+    # Add a required "RequiredPlugin" dependency, which will load AFTER your plugin.
+    Vault:
+      load: BEFORE
+      required: false
+      # This means that your plugin will not have access to their classpath
+      join-classpath: true

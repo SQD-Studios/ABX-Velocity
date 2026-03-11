@@ -49,11 +49,6 @@ public class BukkitMain extends JavaPlugin {
                 player.kickPlayer(result);
             }
         });
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) {
-            LuckPerms api = provider.getProvider();
-
-        }
     }
 
     @Override
