@@ -17,7 +17,11 @@ repositories {
         name = 'papermc'
         url = 'https://repo.papermc.io/repository/maven-public/'
     }
+    maven {
+        url = 'https://repo.extendedclip.com/releases/'
+    }
 }
+
 
 dependencies {
     compileOnly ("commons-io:commons-io:2.18.0")
@@ -39,6 +43,7 @@ dependencies {
     compileOnly 'net.luckperms:api:5.4'
     implementation("com.mojang:brigadier:1.0.18")
     compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.12.2'
 }
 
 def targetJavaVersion = 21

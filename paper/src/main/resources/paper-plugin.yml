@@ -14,3 +14,6 @@ dependencies:
       required: false
       # This means that your plugin will not have access to their classpath
       join-classpath: true
+    PlaceholderAPI:
+      load: BEFORE #
+      required: false

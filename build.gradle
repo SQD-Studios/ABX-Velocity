@@ -11,9 +11,13 @@ version = '1.2.1'
 
 repositories {
     mavenCentral()
+    maven {
+        url = 'https://repo.extendedclip.com/releases/'
+    }
 }
 
 dependencies {
+    compileOnly 'me.clip:placeholderapi:2.12.2'
 }
 
 def targetJavaVersion = 21
