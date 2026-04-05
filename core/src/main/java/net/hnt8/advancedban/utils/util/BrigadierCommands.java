@@ -13,8 +13,6 @@ import net.hnt8.advancedban.utils.manager.UUIDManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.lang.annotation.Target;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -149,7 +147,7 @@ public class BrigadierCommands {
                             String uuid = processName(context.getArgument("Player", PlayerSelectorArgumentResolver.class).resolve);
                             if (uuid == null)
                                 return;
-                            String name = context.getArgument("Player");
+                            final String name = context.getArgument("Player");
 
                             String ip = Universal.get().getIps().getOrDefault(name.toLowerCase(), "none cashed");
                             String loc = Universal.get().getMethods().getFromUrlJson("http://ip-api.com/json/" + ip, "country");
@@ -163,7 +161,7 @@ public class BrigadierCommands {
                             boolean ipCached = PunishmentManager.get().isCached(ip);
                             boolean uuidCached = PunishmentManager.get().isCached(uuid);
 
-                            Object sender = context.getSender();
+                            CommandSender sender = context.getSource().getSender();
                             MessageManager.sendMessage(sender, "Check.Header", true, "NAME", name, "CACHED", nameCached ? cached : notCached);
                             MessageManager.sendMessage(sender, "Check.UUID", false, "UUID", uuid, "CACHED", uuidCached ? cached : notCached);
                             if (Universal.get().hasPerms(sender, "ab.check.ip")) {
@@ -186,3 +184,4 @@ public class BrigadierCommands {
     }
 
 }
+
